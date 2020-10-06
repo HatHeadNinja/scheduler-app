@@ -72,7 +72,11 @@ export default {
     }
 
     if (url === "/api/interviewers") {
-      /* Resolve interviewers data */
+      return Promise.resolve({
+        status: 200,
+        statusText: "OK",
+        data: fixtures.appointments
+      })
     }
   })
 }
