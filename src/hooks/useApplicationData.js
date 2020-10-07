@@ -42,31 +42,31 @@ export function useApplicationData () {
       })
   }
 
-  const cancelInterview = (appointmentId) => {
+  const cancelInterview = (id) => {
     const appointment = {
-      ...state.appointments[appointmentId],
-      interview: null
-    }
+      ...state.appointments[id],
+      interview: null,
+    };
 
     const appointments = {
       ...state.appointments,
-      [appointmentId]: appointment
+      [id]: appointment,
+    };
+
+    // Increment spots
+    const days = [...state.days];
+    for (let dayIndex in days) {
+      let day = days[dayIndex];
+      if (day.appointments.includes(id)) {
+        const newDay = { ...day, spots: day.spots + 1 };
+        days[dayIndex] = newDay;
+      }
     }
 
-    return axios.delete(`http://localhost:8001/api/appointments/${appointmentId}`, appointment)
-      .then(res => {
-
-        // for spots remaining
-        let updatedDays = [];
-        updatedDays = updateSpots(1);
-      
-        setState((prev) => ({
-          ...prev,
-          appointments,
-          days: updatedDays,
-        }))
-      })
-  }
+    return axios
+      .delete(`/api/appointments/${id}`)
+      .then(() => setState({ ...state, appointments, days }));
+  };
 
   const [state, setState] = useState({
     day: "Monday",

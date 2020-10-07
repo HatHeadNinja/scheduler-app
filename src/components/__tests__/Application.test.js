@@ -11,7 +11,7 @@ import {
   queryByAltText,
   getByDisplayValue,
   waitForElementToBeRemoved,
-  //prettyDOM
+  prettyDOM
 } from "@testing-library/react";
 import { fireEvent } from "@testing-library/react/dist";
 import Application from "components/Application";
@@ -94,7 +94,7 @@ describe("Application", () => {
   
     // 4. Check that the confirmation message is shown.
     expect(
-      getByText(appointment, "Are you sure you would like to delete?")
+      getByText(appointment, "Delete the appointment?")
     ).toBeInTheDocument();
   
     // 5. Click the "Confirm" button on the confirmation.
@@ -116,7 +116,7 @@ describe("Application", () => {
 })
 it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
   // 1. Render the Application
-  const { container, debug } = render(<Application />);
+  const { container } = render(<Application />);
   
   // 2. Wait until the text "Archie Cohen" is displayed
   await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -151,14 +151,11 @@ it("loads data, edits an interview and keeps the spots remaining for Monday the 
 
   expect(getByText(day, /1 spot remaining/i)).toBeInTheDocument();
 
-  debug();
-
 })
-/* test number five */
 it("shows the save error when failing to save an appointment", async () => {
   axios.put.mockRejectedValueOnce();
 
-  const { container, debug } = render(<Application />);
+  const { container } = render(<Application />);
 
   await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -184,6 +181,25 @@ it("shows the save error when failing to save an appointment", async () => {
   debug();
 });
 
-it("shows the delete error when failing to delete an existing appointment", () => {
-  axios.put.mockRejectedValueOnce();
-})
+it("shows the delete error when failing to delete an existing appointment", async () => {
+  axios.delete.mockRejectedValueOnce();
+  
+  const { container } = render(<Application />);
+
+  await waitForElement(() => getByText(container, "Archie Cohen"));
+
+  const appointments = getAllByTestId(container, "appointment");
+  const appointment = appointments.find((appointment) => queryByText(appointment, "Archie Cohen"));
+
+  fireEvent.click(getByAltText(appointment, "Delete"));
+
+  const confirmButton = getByText(appointment, "Confirm");
+
+  fireEvent.click(confirmButton);
+
+  expect(getByText(appointment, "Deleting")).toBeInTheDocument();
+
+  await waitForElement(() => getByText(appointment, "Error"));
+  expect(getByText(appointment, "Could not cancel appointment")).toBeInTheDocument();
+
+});	
