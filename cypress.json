@@ -1,3 +1,7 @@
 {
-  "projectId": "2k8yx7"
+  "projectId": "2k8yx7",
+  "baseUrl": "http://localhost:8000",
+  "viewportWidth": 1280,
+  "viewportHeight": 720
 }
+
