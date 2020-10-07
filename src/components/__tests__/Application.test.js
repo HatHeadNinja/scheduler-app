@@ -78,7 +78,7 @@ describe("Application", () => {
   });
   it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
     // 1. Render the Application
-    const { container } = render(<Application />);
+    const { container, debug } = render(<Application />);
 
     // 2. Wait until the text "Archie Cohen" is displayed
     await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -91,11 +91,16 @@ describe("Application", () => {
     fireEvent.click(queryByAltText(appointment, "Delete"));
 
     // 4. Check confirmation message is shown
+    expect(getByText(appointment, "Delete the appointment?")).toBeInTheDocument();
+
     // 5. Click "Confirm" button on the confirmation dialog
+    // fireEvent.click(queryByText(appointment, "Confirm"));
+
     // 6. Check element with the text "Deleting" is being displayed
     // 7. Wait until element with "Add" button is being displayed
     // 8. Check DayListItem with the text "Monday" also has text "2 spots remaining"
-
+    
+    debug();
   })
 })
 /* Tests to write
