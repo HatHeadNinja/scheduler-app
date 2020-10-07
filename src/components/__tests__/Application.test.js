@@ -75,11 +75,23 @@ describe("Application", () => {
     // console.log(prettyDOM(appointment));
     
   });
-  /* Tests to write
-  "loads data, cancels an interview and increases the spots remaining for Monday by 1"
-  "loads data, edits an interview and keeps the spots remaining for Monday the same"
-  "shows the save error when failing to save an appointment"
-  "shows the delete error when failing to delete an existing appointment"
-  */
+  it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
+    // 1. Render the Application
+    const { container } = render(<Application />);
 
+    // 2. Wait until the text "Archie Cohen" is displayed
+    await waitForElement(() => getByText(container, "Archie Cohen"));
+
+    // 3. Click "Delete" button on a booked appointment
+    // 4. Check confirmation message is shown
+    // 5. Click "Confirm" button on the confirmation dialog
+    // 6. Check element with the text "Deleting" is being displayed
+    // 7. Wait until element with "Add" button is being displayed
+    // 8. Check DayListItem with the text "Monday" also has text "2 spots remaining"
+    
+  })
 })
+/* Tests to write
+"loads data, edits an interview and keeps the spots remaining for Monday the same"
+"shows the save error when failing to save an appointment"
+"shows the delete error when failing to delete an existing appointment" */
