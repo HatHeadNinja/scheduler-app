@@ -32,7 +32,7 @@ describe("Application", () => {
 
   });
 
-  it.skip("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
+  it("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
     // Render the Application.
     const { container } = render(<Application />);
     
@@ -60,12 +60,18 @@ describe("Application", () => {
     fireEvent.click(getByText(appointment, "Save"));
     
     // Check that the element with the text "Saving" is displayed.
-    
+    expect(getByText(appointment, "Saving")).toBeInTheDocument();
+
     // Wait until the element with the text "Lydia Miller-Jones" is displayed.
+    await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
     
     // Check that the DayListItem with the text "Monday" also has the text "no spots remaining".
+    const day = getAllByTestId(container, "day").find((day) =>
+      queryByText(day, "Monday")
+    );
 
-    console.log(prettyDOM(appointment));
+    expect(getByText(day, /no spots remaining/i)).toBeInTheDocument();
+    // console.log(prettyDOM(appointment));
     
   });
 })
