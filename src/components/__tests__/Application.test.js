@@ -15,6 +15,7 @@ import {
 } from "@testing-library/react";
 import { fireEvent } from "@testing-library/react/dist";
 import Application from "components/Application";
+import axios from 'axios';
 
 afterEach(cleanup);
 
@@ -153,8 +154,11 @@ it("loads data, edits an interview and keeps the spots remaining for Monday the 
   debug();
 
 })
+/* test number five */
+it("shows the save error when failing to save an appointment", () => {
+  axios.put.mockRejectedValueOnce();
+});
 
 
 /* Tests to write
-"shows the save error when failing to save an appointment"
 "shows the delete error when failing to delete an existing appointment" */
