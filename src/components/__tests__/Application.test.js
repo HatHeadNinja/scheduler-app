@@ -54,8 +54,6 @@ describe("Application", () => {
       target: { value: "Lydia Miller-Jones" }
     });
 
-    // MENTOR ASSISTANCE REQ'D
-    // ========================
     // Click the first interviewer in the list.
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
     
@@ -143,7 +141,7 @@ it("loads data, edits an interview and keeps the spots remaining for Monday the 
   // 8. wait for the saving operation to complete
   expect(getByText(appointment, "Alice Roberts")).toBeInTheDocument();
 
-  // 8. Check that the DayListItem with the text "Monday" also has the text "2 spots remaining".
+  // 9. Check that the DayListItem with the text "Monday" also has the text "2 spots remaining".
   const day = getAllByTestId(container, "day").find((day) =>
       queryByText(day, "Monday")
     );
@@ -167,8 +165,6 @@ it("shows the save error when failing to save an appointment", async () => {
     target: { value: "Lydia Miller-Jones" }
   });
 
-  // MENTOR ASSISTANCE REQ'D
-  // ========================
   fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
   fireEvent.click(getByText(appointment, "Save"));
 
