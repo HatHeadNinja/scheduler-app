@@ -7,9 +7,9 @@ import {
   getAllByTestId,
   getByAltText,
   getByPlaceholderText,
-  waitForElementToBeRemoved,
+  //waitForElementToBeRemoved,
   queryByText,
-  prettyDOM
+  //prettyDOM
 } from "@testing-library/react";
 import { fireEvent } from "@testing-library/react/dist";
 import Application from "components/Application";
