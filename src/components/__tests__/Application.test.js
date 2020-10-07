@@ -7,8 +7,9 @@ import {
   getAllByTestId,
   getByAltText,
   getByPlaceholderText,
-  //waitForElementToBeRemoved,
   queryByText,
+  queryByAltText
+  //waitForElementToBeRemoved,
   //prettyDOM
 } from "@testing-library/react";
 import { fireEvent } from "@testing-library/react/dist";
@@ -83,12 +84,18 @@ describe("Application", () => {
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     // 3. Click "Delete" button on a booked appointment
+    const appointment = getAllByTestId(container, "appointment").find(
+      appointment => queryByText(appointment, "Archie Cohen")
+    );
+  
+    fireEvent.click(queryByAltText(appointment, "Delete"));
+
     // 4. Check confirmation message is shown
     // 5. Click "Confirm" button on the confirmation dialog
     // 6. Check element with the text "Deleting" is being displayed
     // 7. Wait until element with "Add" button is being displayed
     // 8. Check DayListItem with the text "Monday" also has text "2 spots remaining"
-    
+
   })
 })
 /* Tests to write
