@@ -8,8 +8,9 @@ import {
   getByAltText,
   getByPlaceholderText,
   queryByText,
-  queryByAltText
-  //waitForElementToBeRemoved,
+  queryByAltText,
+  getByDisplayValue,
+  waitForElementToBeRemoved,
   //prettyDOM
 } from "@testing-library/react";
 import { fireEvent } from "@testing-library/react/dist";
@@ -112,7 +113,48 @@ describe("Application", () => {
     expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
   });
 })
+it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
+  // 1. Render the Application
+  const { container, debug } = render(<Application />);
+  
+  // 2. Wait until the text "Archie Cohen" is displayed
+  await waitForElement(() => getByText(container, "Archie Cohen"));
+  
+  const appointments = getAllByTestId(container, "appointment");
+  const appointment = appointments[1];
+  
+  // 3. Click the "Edit" button on the booked appointment
+  fireEvent.click(getByAltText(appointment, "Edit"));
+  
+  // 4. Check that the edit form is displayed
+  expect(getByDisplayValue(appointment, /archie cohen/i)).toBeInTheDocument();
+  
+  // 5. Enter the name "Alice Roberts" into the input with the placeholder "Enter Student Name".
+  fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
+    target: { value: "Alice Roberts" },
+  });
+
+  // 6. Click the "Save" button on the booked appointment
+  fireEvent.click(getByText(appointment, "Save"));
+
+  // 7. Check that the element with the text "Saving" is displayed.
+  await waitForElementToBeRemoved(() => getByText(appointment, "Saving"));
+
+  // 8. wait for the saving operation to complete
+  expect(getByText(appointment, "Alice Roberts")).toBeInTheDocument();
+
+  // 8. Check that the DayListItem with the text "Monday" also has the text "2 spots remaining".
+  const day = getAllByTestId(container, "day").find((day) =>
+      queryByText(day, "Monday")
+    );
+
+  expect(getByText(day, /1 spot remaining/i)).toBeInTheDocument();
+
+  debug();
+
+})
+
+
 /* Tests to write
-"loads data, edits an interview and keeps the spots remaining for Monday the same"
 "shows the save error when failing to save an appointment"
 "shows the delete error when failing to delete an existing appointment" */
