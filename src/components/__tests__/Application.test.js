@@ -57,7 +57,6 @@ describe("Application", () => {
     // MENTOR ASSISTANCE REQ'D
     // ========================
     // Click the first interviewer in the list.
-    // await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
     
     // Click the "Save" button on that same appointment.
@@ -178,7 +177,6 @@ it("shows the save error when failing to save an appointment", async () => {
     getByText(appointment, "Could not book appointment")
   ).toBeInTheDocument();
 
-  debug();
 });
 
 it("shows the delete error when failing to delete an existing appointment", async () => {

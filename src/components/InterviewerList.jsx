@@ -4,7 +4,7 @@ import "components/InterviewerList.scss"
 import PropTypes from "prop-types";
 
 function InterviewerList(props) {
-  // console.log('SOF InterviewList.jsx props:', props);
+  //console.log('SOF InterviewList.jsx props:', props);
 
   const interviewers = props.interviewers.map(interviewer => {
     return (

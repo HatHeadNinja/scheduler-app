@@ -26,6 +26,8 @@ export default function Appointment(props) {
   );
   
   function save(name, interviewer) {
+
+    console.log('SOF index.js save props:' , props);
     
     // for spots remaining
     let create = null;
@@ -41,7 +43,6 @@ export default function Appointment(props) {
     .then(() => transition(SHOW))
     .catch(err => {
       transition(ERROR_SAVE, true)
-      console.error(err)
     });
     // console.log('EOF Appointment index.js save props:', props);
   }
@@ -53,9 +54,21 @@ export default function Appointment(props) {
     .then(() => transition(EMPTY))
     .catch(err => {
       transition(ERROR_DELETE, true)
-      console.error(err)
     })
   }
+
+  // const onEdit = (name, interviewer) => {
+  //   const interview = {
+  //     student: name,
+  //     interviewer,
+  //   };
+
+  //   transition("SAVING");
+  //   props
+  //     .editInterview(props.id, interview)
+  //     .then(() => transition("SHOW"))
+  //     .catch((error) => transition("ERROR_SAVE", true));
+  // };
 
   // console.log('Appointment index.jsx props:', props);
 
@@ -105,7 +118,6 @@ export default function Appointment(props) {
           onCancel={() => back(EMPTY)}
           onSave={save}
           name={props.interview.student}
-          interviewer={props.interview.interviewer}
         />
       )}
       {mode === ERROR_SAVE && (

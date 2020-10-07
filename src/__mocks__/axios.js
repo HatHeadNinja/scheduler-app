@@ -76,10 +76,11 @@ export default {
       return Promise.resolve({
         status: 200,
         statusText: "OK",
-        data: fixtures.appointments
+        data: fixtures.interviewers
       })
     }
   }),
+
   put: jest.fn(url => {
     if (url.includes("/api/appointments")) {
       return Promise.resolve({
@@ -88,6 +89,7 @@ export default {
       })
     }
   }),
+  
   delete: jest.fn(url => {
     if (url === "/api/appointments/2") {
       return Promise.resolve({
