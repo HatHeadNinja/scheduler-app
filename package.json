@@ -5,7 +5,6 @@
   "dependencies": {
     "axios": "^0.20.0",
     "classnames": "^2.2.6",
-    "eslint-plugin-cypress": "^2.11.2",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -45,6 +44,7 @@
     "babel-loader": "^8.1.0",
     "ci-info": "^2.0.0",
     "cypress": "^5.3.0",
+    "eslint-plugin-cypress": "^2.11.2",
     "node-sass": "^4.14.1",
     "react-test-renderer": "^16.13.1"
   },
