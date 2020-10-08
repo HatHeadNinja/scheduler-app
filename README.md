@@ -36,10 +36,11 @@ npm run storybook
 [x] When the user presses the close button of the error they are returned to the Form or Show view (skipping Status and Confirm).
 [x] The application makes API requests to load and persist data. We do not lose data after a browser refresh.
 
-## Day List view
+## Day List View
+![Day list view](https://github.com/HatHeadNinja/scheduler-app/blob/master/docs/day-list-example.png)
 
+## Create / Edit View
+![Create/edit an interview](https://github.com/HatHeadNinja/scheduler-app/blob/master/docs/create-edit-example.png?raw=true)
 
-## Create / Edit view
-
-
-## Cancel interview confirmation example
+## Cancel Interview Confirmation Example
+![Cancel interview confirmation](https://github.com/HatHeadNinja/scheduler-app/blob/master/docs/cancel-meeting-confirmation-example.png?raw=true)
