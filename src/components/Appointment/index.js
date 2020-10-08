@@ -25,6 +25,7 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
   
+  // save interview
   function save(name, interviewer) {
 
     console.log('SOF index.js save props:' , props);
@@ -46,6 +47,7 @@ export default function Appointment(props) {
     });
   }
 
+  // cancel interview
   function remove(id) {
 
     transition(DELETING);
