@@ -13,9 +13,9 @@
     justify-content: center;
 
     &:hover {
+      color: #54a0ff;
       background-color: #e4efff;
       cursor: pointer;
-      color: $dark-background;
     }
 
     &--selected {
