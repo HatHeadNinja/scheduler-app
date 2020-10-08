@@ -3,6 +3,7 @@ import classnames from "classnames";
 
 import "components/DayListItem.scss";
 
+// day list items
 export default function DayListItem(props) {
   const dayClass = classnames("day-list__item", {
     "day-list__item--full": !props.spots,
@@ -16,6 +17,7 @@ export default function DayListItem(props) {
     } remaining`;
   };
 
+  // day list item props and layout
   return (
     <li
       className={ dayClass }

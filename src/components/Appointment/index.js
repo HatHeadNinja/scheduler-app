@@ -57,7 +57,7 @@ export default function Appointment(props) {
       transition(ERROR_DELETE, true)
     })
   }
-
+  // appointment modes and layouts
   return(
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} />

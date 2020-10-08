@@ -3,9 +3,8 @@ import InterviewerListItem from "components/InterviewerListItem";
 import "components/InterviewerList.scss"
 import PropTypes from "prop-types";
 
+// interviewer list
 function InterviewerList(props) {
-  //console.log('SOF InterviewList.jsx props:', props);
-
   const interviewers = props.interviewers.map(interviewer => {
     return (
       <InterviewerListItem
@@ -18,7 +17,7 @@ function InterviewerList(props) {
       />
     );
   });
-
+  // interviewers list layout
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">Interviewer</h4>

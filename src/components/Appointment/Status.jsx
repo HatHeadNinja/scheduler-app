@@ -1,5 +1,6 @@
 import React from "react";
 
+// status indictator layout
 export default function Status (props){
 
   return (

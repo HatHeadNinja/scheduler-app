@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export function useApplicationData () {
 
+  // update spots remaining for the day
   const updateSpots = function (increment) {
     const copiedDays = [...state.days];
     const updateDays = copiedDays.map((day) => {
@@ -14,7 +15,9 @@ export function useApplicationData () {
     return updateDays;
   };
 
+  // book an interview
   const bookInterview = (appointmentId, interview, create) => {
+
     const appointment = {
       ...state.appointments[appointmentId],
       interview: { ...interview }
@@ -23,7 +26,7 @@ export function useApplicationData () {
       ...state.appointments,
       [appointmentId]: appointment
     }
-
+    // make call to scheduler-api to add new appointment
     return axios.put(`/api/appointments/${appointmentId}`, appointment)
       .then(res => {
 
@@ -41,7 +44,7 @@ export function useApplicationData () {
         }))
       })
   }
-
+  // cancel an interview
   const cancelInterview = (id) => {
     const appointment = {
       ...state.appointments[id],
@@ -62,12 +65,13 @@ export function useApplicationData () {
         days[dayIndex] = newDay;
       }
     }
-
+    // delete appointment via scheduler-api
     return axios
       .delete(`/api/appointments/${id}`)
       .then(() => setState({ ...state, appointments, days }));
   };
 
+  // set initial state
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -75,6 +79,7 @@ export function useApplicationData () {
     interviewers: {}
   })
 
+  // retrieve data from the scheduler-api
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),
@@ -90,7 +95,8 @@ export function useApplicationData () {
       }))
     })
   }, [])
-
+  
+  // set the day
   const setDay = day => 
     setState(prev => ({
       ...prev,

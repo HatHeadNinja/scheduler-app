@@ -1,3 +1,4 @@
+// get appointments for a specific day
 export function getAppointmentsForDay(state, day) {
   let appointmentList = [];
 
@@ -11,6 +12,7 @@ export function getAppointmentsForDay(state, day) {
   return appointmentList;
 };
 
+// get interview info
 export function getInterview(state, interview) {
   if (interview) {
     return {
@@ -18,9 +20,11 @@ export function getInterview(state, interview) {
       interviewer: state.interviewers[interview.interviewer],
     };
   }
+  // no interview provided
   return null;
 };
 
+// get interviews for a specific day
 export function getInterviewersForDay(state, day) {
   let interviewersList = [];
 

@@ -1,5 +1,6 @@
 // this file provides mock data for api testing
 
+// mock data
 const fixtures = {
   days: [
     {
@@ -67,6 +68,7 @@ export default {
       });
     }
 
+    // appointments
     if (url === "/api/appointments") {
       return Promise.resolve({
         status: 200,
@@ -75,6 +77,7 @@ export default {
       })
     }
 
+    // interviewers
     if (url === "/api/interviewers") {
       return Promise.resolve({
         status: 200,
@@ -84,6 +87,7 @@ export default {
     }
   }),
 
+  // add an appointment
   put: jest.fn(url => {
     if (url.includes("/api/appointments")) {
       return Promise.resolve({
@@ -93,6 +97,7 @@ export default {
     }
   }),
   
+  // delete an appointment
   delete: jest.fn(url => {
     if (url === "/api/appointments/2") {
       return Promise.resolve({

@@ -1,5 +1,6 @@
 import React from "react";
 
+// empty slot in appointment schedule
 export default function Empty(props) {
   return (
     <main className="appointment__add">

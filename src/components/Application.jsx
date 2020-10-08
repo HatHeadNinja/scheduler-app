@@ -8,6 +8,7 @@ import "components/Application.scss";
 
 export default function Application(props) {
   
+  // hooks
   const {
     state,
     setDay,
@@ -15,6 +16,9 @@ export default function Application(props) {
     cancelInterview
   } = useApplicationData();
 
+  // page layout
+  // - side bar daylist
+  // - appointment listing for selected day
   return (
     <main className="layout">
       <section className="sidebar">
