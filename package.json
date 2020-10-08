@@ -41,8 +41,9 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^8.0.9",
     "@testing-library/react-hooks": "^3.4.2",
-    "cypress": "^5.3.0",
     "babel-loader": "^8.1.0",
+    "ci-info": "^2.0.0",
+    "cypress": "^5.3.0",
     "node-sass": "^4.14.1",
     "react-test-renderer": "^16.13.1"
   },
