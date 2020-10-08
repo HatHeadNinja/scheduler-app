@@ -1,3 +1,5 @@
+// this file provides mock data for api testing
+
 const fixtures = {
   days: [
     {
@@ -53,6 +55,7 @@ const fixtures = {
   }
 };
 
+// mock returns for api
 export default {
   defaults: { baseURL: "" },
   get: jest.fn(url => {
