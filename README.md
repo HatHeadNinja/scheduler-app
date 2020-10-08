@@ -22,11 +22,11 @@ npm test
 npm run storybook
 ```
 ## Requirements
-[x] Interviews can be booked between Monday and Friday.
-[x] A user can switch between weekdays.
-[x] A user can book an interview in an empty appointment slot.
-[x] Interviews are booked by typing in a student name and clicking on an interviewer from a list of available interviewers.
-[x] A user can cancel an existing interview.
+[X] Interviews can be booked between Monday and Friday.  
+[x] A user can switch between weekdays.  
+[x] A user can book an interview in an empty appointment slot.  
+[x] Interviews are booked by typing in a student name and clicking on an interviewer from a list of available interviewers.  
+[x] A user can cancel an existing interview.  
 [x] A user can edit the details of an existing interview.  
 [x] The list of days informs the user how many slots are available for each day.  
 [x] The expected day updates the number of spots available when an interview is booked or canceled.  
