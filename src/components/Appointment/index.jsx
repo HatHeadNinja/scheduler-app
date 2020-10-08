@@ -44,7 +44,6 @@ export default function Appointment(props) {
     .catch(err => {
       transition(ERROR_SAVE, true)
     });
-    // console.log('EOF Appointment index.js save props:', props);
   }
 
   function remove(id) {
@@ -56,21 +55,6 @@ export default function Appointment(props) {
       transition(ERROR_DELETE, true)
     })
   }
-
-  // const onEdit = (name, interviewer) => {
-  //   const interview = {
-  //     student: name,
-  //     interviewer,
-  //   };
-
-  //   transition("SAVING");
-  //   props
-  //     .editInterview(props.id, interview)
-  //     .then(() => transition("SHOW"))
-  //     .catch((error) => transition("ERROR_SAVE", true));
-  // };
-
-  // console.log('Appointment index.jsx props:', props);
 
   return(
     <article className="appointment" data-testid="appointment">

@@ -8,9 +8,8 @@ export function getAppointmentsForDay(state, day) {
       appointmentList.push(state.appointments[appointment]);
     }
   }
-
   return appointmentList;
-}
+};
 
 export function getInterview(state, interview) {
   if (interview) {
@@ -20,7 +19,7 @@ export function getInterview(state, interview) {
     };
   }
   return null;
-}
+};
 
 export function getInterviewersForDay(state, day) {
   let interviewersList = [];
@@ -32,6 +31,5 @@ export function getInterviewersForDay(state, day) {
       interviewersList.push(state.interviewers[interviewer]);
     }
   }
-
   return interviewersList;
-}
+};

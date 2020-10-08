@@ -7,12 +7,8 @@ export default function Form(props) {
   const [name, setName] = useState(props.name || "");
   const [error, setError] = useState("");
 
-  // console.log('SOF Form.jsx props:', props);
-  // console.log('Form.js interviewer, name:', interviewer, ', ', name);
-
   const reset = () => {
     setInterviewer(null);
-    // console.log(props.name);
   };
 
   const validate = () => {
@@ -67,5 +63,5 @@ export default function Form(props) {
         </section>
       </section>
     </main>
-  );
-}
+  )
+};
