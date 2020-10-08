@@ -22,7 +22,7 @@ npm test
 npm run storybook
 ```
 ## Requirements
-[X] Interviews can be booked between Monday and Friday.  
+[x] Interviews can be booked between Monday and Friday.  
 [x] A user can switch between weekdays.  
 [x] A user can book an interview in an empty appointment slot.  
 [x] Interviews are booked by typing in a student name and clicking on an interviewer from a list of available interviewers.  
