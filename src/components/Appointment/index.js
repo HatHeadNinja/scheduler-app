@@ -28,8 +28,6 @@ export default function Appointment(props) {
   // save interview
   function save(name, interviewer) {
 
-    console.log('SOF index.js save props:' , props);
-    
     // for spots remaining
     let create = null;
     mode === CREATE ? (create = true) : (create = false);

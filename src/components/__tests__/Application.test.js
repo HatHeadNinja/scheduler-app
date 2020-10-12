@@ -117,7 +117,7 @@ it("loads data, edits an interview and keeps the spots remaining for Monday the 
   fireEvent.click(getByText(appointment, "Save"));
 
   // 7. Check that the element with the text "Saving" is displayed.
-  await waitForElementToBeRemoved(() => getByText(appointment, "Saving"));
+  await waitFor(() => getByText(appointment, "Saving"));
 
   // 8. wait for the saving operation to complete
   expect(getByText(appointment, "Alice Roberts")).toBeInTheDocument();
